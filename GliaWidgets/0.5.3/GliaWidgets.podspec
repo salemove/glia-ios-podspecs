@@ -6,7 +6,7 @@ Pod::Spec.new do |s|
     s.homepage         = 'https://github.com/salemove/ios-sdk-widgets'
     s.license          = { :type => 'MIT', :file => 'LICENSE' }
     s.author           = { 'Glia' => 'support@glia.com' }
-    s.source           = { :git => 'git@github.com:salemove/ios-sdk-widgets.git', :tag => s.version.to_s }
+    s.source           = { :git => 'https://github.com/salemove/ios-sdk-widgets.git', :tag => s.version.to_s }
   
     s.module_name = 'GliaWidgets'
     s.ios.deployment_target = '12.0'
