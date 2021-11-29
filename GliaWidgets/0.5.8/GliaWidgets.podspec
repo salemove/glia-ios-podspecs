@@ -14,6 +14,7 @@ Pod::Spec.new do |s|
     s.swift_version         = '5.3'
   
     s.resources             = ['GliaWidgets/Resources/*.{xcassets}', 'GliaWidgets/Resources/**/*.{strings}', 'GliaWidgets/Resources/Font/*.{ttf}']
+    s.exclude_files         = ['GliaWidgets/Window/**']
     
     s.dependency 'SalemoveSDK', '0.31.0'
     s.dependency 'PureLayout', '~>3.1'
