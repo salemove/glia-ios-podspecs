@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = 'ReactiveSwift'
-  s.version      = '6.5.0'
+  s.version      = '6.5.0-xcf'
   s.summary      = 'Streams of values over time'
   s.description  = 'ReactiveSwift is a Swift framework inspired by Functional Reactive Programming. It provides APIs for composing and transforming streams of values over time.'
   s.homepage     = 'https://github.com/ReactiveCocoa/ReactiveSwift'
