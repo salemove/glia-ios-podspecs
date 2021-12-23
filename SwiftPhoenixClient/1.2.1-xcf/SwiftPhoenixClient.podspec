@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
   s.name         = 'SwiftPhoenixClient'
-  s.version      = '1.2.1'
+  s.version      = '1.2.1-xcf'
   s.summary      = 'Connect your Phoenix and iOS applications through WebSockets!'
   s.description  = <<-EOS
   SwiftPhoenixClient is a Swift port of phoenix.js, abstracting away the details
