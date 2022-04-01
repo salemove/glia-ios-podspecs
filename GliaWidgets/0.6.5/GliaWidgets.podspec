@@ -1,6 +1,6 @@
 Pod::Spec.new do |s|
     s.name                  = 'GliaWidgets'
-    s.version               = '0.6.4'
+    s.version               = '0.6.5'
     s.summary               = 'The Glia iOS Widgets library'
     s.description           = 'The Glia Widgets library allows to integrate easily a UI/UX for Glia\'s Digital Customer Service platform'
     s.homepage              = 'https://github.com/salemove/ios-sdk-widgets'
@@ -13,6 +13,7 @@ Pod::Spec.new do |s|
     s.source_files          = 'GliaWidgets/**/*.swift'
     s.swift_version         = '5.3'
   
+    s.resources             = ['GliaWidgets/Resources/*.{xcassets}', 'GliaWidgets/Resources/**/*.{strings}', 'GliaWidgets/Resources/Font/*.{ttf}']
     s.resource_bundle       = {
       'GliaWidgets' => ['GliaWidgets/Resources/*.{xcassets}', 'GliaWidgets/Resources/**/*.{strings}', 'GliaWidgets/Resources/Font/*.{ttf}'] 
     }
