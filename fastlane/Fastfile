@@ -8,27 +8,16 @@ platform :ios do
     "fastlane ios upload_core_sdk_podspec version:1.0.0\n"
   lane :upload_podspec do |options|
     version = options[:version]
-    podspec = core_sdk_podspec(version: version)
-    generate_podspec(podspec: podspec)
 
-    # TODO: Create a PR in the repository
-  end
+    branch_name = "ios-sdk/#{version}"
 
-  def core_sdk_podspec(version:)
-    Fastlane::Podspec.new(attributes: {
-      name: 'SalemoveSDK',
-      version: version,
-      summary: 'The Salemove iOS library',
-      description: 'The Salemove iOS library brings the in-person customer experience to iOS devices.',
-      homepage: 'https://github.com/salemove/ios-sdk',
-      source: { :git => 'https://github.com/salemove/ios-bundle.git', :tag => version },
-      vendored_frameworks: 'SalemoveSDK.xcframework',
-      dependencies: [
-        {name: 'ReactiveSwift', version: '6.5.0-xcf'},
-        {name: 'GliaCoreDependency', version: '1.0'},
-        {name: 'WebRTC-lib', version: '96.0.0'},
-        {name: 'TwilioVoice', version: '6.3.1'}
-      ]
-    })
+    sh "scripts/create_core_sdk_pr.sh '#{version}' #{branch_name}"
+    create_pull_request(
+      repo: "salemove/glia-ios-podspecs",
+      title: "Add Core SDK podspec for version #{version}",
+      head: branch_name,
+      base: "master",
+      reviewers: [:gersonnoboa]
+    )
   end
 end
