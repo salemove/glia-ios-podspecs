@@ -14,8 +14,7 @@ platform :ios do
       repo: "salemove/glia-ios-podspecs",
       title: "Add Core SDK podspec for version #{version}",
       head: branch_name,
-      base: "master",
-      reviewers: [:gersonnoboa]
+      base: "master"
     )
   end
 end
