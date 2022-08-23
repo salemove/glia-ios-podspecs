@@ -1,0 +1,20 @@
+default_platform(:ios)
+
+platform :ios do
+  desc "Creates a PR with the podspec for the Core SDK.\n\n"\
+    "Usage:\n"\
+    "fastlane ios upload_core_sdk_podspec version:1.0.0\n"
+  lane :upload_podspec do |options|
+    version = options[:version]
+    branch_name = "ios-sdk/#{version}"
+
+    sh "scripts/create_core_sdk_pr.sh '#{version}' #{branch_name}"
+    create_pull_request(
+      repo: "salemove/glia-ios-podspecs",
+      title: "Add Core SDK podspec for version #{version}",
+      head: branch_name,
+      base: "master",
+      reviewers: [:gersonnoboa, :dukhovnyi, :igorkravchenko, :EgorovEI]
+    )
+  end
+end
