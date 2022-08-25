@@ -10,7 +10,7 @@ workflows:
     - fastlane@3:
         inputs:
         - work_dir: $BITRISE_SOURCE_DIR/fastlane
-        - lane: 'ios upload_podspec version:$BITRISE_GIT_TAG'
+        - lane: 'ios upload_core_sdk_podspec version:$BITRISE_GIT_TAG'
         is_always_run: true
 meta:
   bitrise.io:
