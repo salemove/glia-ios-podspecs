@@ -31,7 +31,7 @@ platform :ios do
       title: "Add Widgets SDK podspec for version #{version}",
       head: branch_name,
       base: "master",
-      reviewers: ["tm-mobile-ios"]
+      team_reviewers: ["tm-mobile-ios"]
     )
   end
 end
