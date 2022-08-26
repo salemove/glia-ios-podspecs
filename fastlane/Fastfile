@@ -4,7 +4,7 @@ platform :ios do
   desc "Creates a PR with the podspec for the Core SDK.\n\n"\
     "Usage:\n"\
     "fastlane ios upload_core_sdk_podspec version:1.0.0\n"
-  lane :upload_podspec do |options|
+  lane :upload_core_sdk_podspec do |options|
     version = options[:version]
     branch_name = "ios-sdk/#{version}"
 
@@ -15,6 +15,23 @@ platform :ios do
       head: branch_name,
       base: "master",
       reviewers: [:gersonnoboa, :dukhovnyi, :igorkravchenko, :EgorovEI]
+    )
+  end
+
+  desc "Creates a PR with the podspec for the Widgets SDK.\n\n"\
+    "Usage:\n"\
+    "fastlane ios upload_widgets_sdk_podspec version:1.0.0\n"
+  lane :upload_widgets_sdk_podspec do |options|
+    version = options[:version]
+    branch_name = "ios-sdk-widgets/#{version}"
+
+    sh "scripts/create_widgets_sdk_pr.sh '#{version}' #{branch_name}"
+    create_pull_request(
+      repo: "salemove/glia-ios-podspecs",
+      title: "Add Widgets SDK podspec for version #{version}",
+      head: branch_name,
+      base: "master",
+      team_reviewers: ["tm-mobile-ios"]
     )
   end
 end

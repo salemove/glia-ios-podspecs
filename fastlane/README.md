@@ -15,16 +15,28 @@ For _fastlane_ installation instructions, see [Installing _fastlane_](https://do
 
 ## iOS
 
-### ios upload_podspec
+### ios upload_core_sdk_podspec
 
 ```sh
-[bundle exec] fastlane ios upload_podspec
+[bundle exec] fastlane ios upload_core_sdk_podspec
 ```
 
 Creates a PR with the podspec for the Core SDK.
 
 Usage:
 fastlane ios upload_core_sdk_podspec version:1.0.0
+
+
+### ios upload_widgets_sdk_podspec
+
+```sh
+[bundle exec] fastlane ios upload_widgets_sdk_podspec
+```
+
+Creates a PR with the podspec for the Widgets SDK.
+
+Usage:
+fastlane ios upload_widgets_sdk_podspec version:1.0.0
 
 
 ----
