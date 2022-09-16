@@ -10,8 +10,15 @@ workflows:
     - fastlane@3:
         inputs:
         - work_dir: $BITRISE_SOURCE_DIR/fastlane
-        - lane: 'ios upload_core_sdk_podspec version:$BITRISE_GIT_TAG'
-        is_always_run: true
+        - lane: 'ios upload_core_sdk_podspec version:$NEW_VERSION'
+  upload_widgets_sdk_podspec:
+    steps:
+    - activate-ssh-key@4: {}
+    - git-clone@6: {}
+    - fastlane@3:
+        inputs:
+        - work_dir: $BITRISE_SOURCE_DIR/fastlane
+        - lane: 'ios upload_widgets_sdk_podspec version:$NEW_VERSION'
 meta:
   bitrise.io:
     stack: osx-xcode-13.4.x
