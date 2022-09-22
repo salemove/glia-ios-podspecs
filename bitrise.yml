@@ -24,19 +24,19 @@ workflows:
         - lane: 'ios upload_widgets_sdk_podspec version:$NEW_VERSION'
   initiate_widgets_sdk_dependency_update:
     steps:
-    - script:
+    - script@1:
       inputs:
       - content: |-
-        curl --fail -X POST -H "Authorization: $BUILD_TRIGGER_TOKEN" "https://app.bitrise.io/app/$WIDGETS_APP_SLUG/build/start.json" -d \
-        '{
-            "hook_info": {
-                "type": "bitrise"
-            },
-            "build_params": {
-                "branch": "master",
-                "workflow_id": "update_dependencies"
-            }
-        }'
+          curl --fail -X POST -H "Authorization: $BUILD_TRIGGER_TOKEN" "https://app.bitrise.io/app/$WIDGETS_APP_SLUG/build/start.json" -d \
+          '{
+              "hook_info": {
+                  "type": "bitrise"
+              },
+              "build_params": {
+                  "branch": "master",
+                  "workflow_id": "update_dependencies"
+              }
+          }'
 meta:
   bitrise.io:
     stack: osx-xcode-13.4.x
