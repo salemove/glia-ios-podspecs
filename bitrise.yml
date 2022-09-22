@@ -2,6 +2,9 @@
 format_version: '11'
 default_step_lib_source: 'https://github.com/bitrise-io/bitrise-steplib.git'
 project_type: other
+trigger_map:
+- push_branch: master
+  workflow: initiate_widgets_sdk_dependency_update
 workflows:
   upload_core_sdk_podspec:
     steps:
@@ -19,6 +22,21 @@ workflows:
         inputs:
         - work_dir: $BITRISE_SOURCE_DIR/fastlane
         - lane: 'ios upload_widgets_sdk_podspec version:$NEW_VERSION'
+  initiate_widgets_sdk_dependency_update:
+    steps:
+    - script:
+      inputs:
+      - content: |-
+        curl --fail -X POST -H "Authorization: $BUILD_TRIGGER_TOKEN" "https://app.bitrise.io/app/$WIDGETS_APP_SLUG/build/start.json" -d \
+        '{
+            "hook_info": {
+                "type": "bitrise"
+            },
+            "build_params": {
+                "branch": "master",
+                "workflow_id": "update_dependencies"
+            }
+        }'
 meta:
   bitrise.io:
     stack: osx-xcode-13.4.x
