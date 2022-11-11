@@ -13,8 +13,7 @@ Pod::Spec.new do |s|
   s.ios.vendored_frameworks = 'SalemoveSDK.xcframework'
   s.swift_version = '5.3'
 
-  s.dependency 'ReactiveSwift', '6.5.0-xcf'
-  s.dependency 'GliaCoreDependency', '1.0'
+  s.dependency 'GliaCoreDependency', '1.2'
   s.dependency 'WebRTC-lib', '96.0.0'
   s.dependency 'TwilioVoice', '6.3.1'
 end
